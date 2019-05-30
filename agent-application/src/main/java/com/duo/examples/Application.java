@@ -10,7 +10,7 @@ import java.io.IOException;
  * @since 2019-05-24
  */
 public class Application {
-    private static Logger LOGGER = LoggerFactory.getLogger(Application.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) throws IOException {
         LOGGER.info("Application started.");

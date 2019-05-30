@@ -17,7 +17,7 @@ import java.io.IOException;
  * @since 2019-05-27
  */
 public class HttpClientExample {
-    private static Logger LOGGER = LoggerFactory.getLogger(HttpClientExample.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(HttpClientExample.class);
 
     public static void getExample() throws IOException {
         CloseableHttpClient httpClient = HttpClients.custom().build();

@@ -9,7 +9,7 @@ import redis.clients.jedis.Jedis;
  * @since 2019-05-27
  */
 public class JedisExample {
-    private static Logger LOGGER = LoggerFactory.getLogger(JedisExample.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(JedisExample.class);
 
     public static void getExample() {
         Jedis jedis = new Jedis("127.0.0.1", 6379);

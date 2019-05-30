@@ -15,9 +15,9 @@ public class JedisMethodInterceptor implements MethodAroundInterceptor {
     }
 
     @Override
-    public Object afterMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Object ret) throws Throwable {
+    public Object afterMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Object result) throws Throwable {
         System.out.println("Jedis ends");
-        return ret;
+        return result;
     }
 
     @Override

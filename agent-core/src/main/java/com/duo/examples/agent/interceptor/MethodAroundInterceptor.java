@@ -8,6 +8,6 @@ import java.lang.reflect.Method;
  */
 public interface MethodAroundInterceptor {
     void beforeMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes) throws Throwable;
-    Object afterMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Object ret) throws Throwable;
+    Object afterMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Object result) throws Throwable;
     void handleMethodException(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Throwable t);
 }

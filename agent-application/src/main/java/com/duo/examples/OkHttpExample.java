@@ -13,7 +13,7 @@ import java.io.IOException;
  * @since 2019-05-29
  */
 public class OkHttpExample {
-    private static Logger LOGGER = LoggerFactory.getLogger(OkHttpExample.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OkHttpExample.class);
 
     public static void getExample() throws IOException {
         OkHttpClient client = new OkHttpClient();

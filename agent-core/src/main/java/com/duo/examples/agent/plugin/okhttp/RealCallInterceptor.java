@@ -15,8 +15,8 @@ public class RealCallInterceptor implements MethodAroundInterceptor {
     }
 
     @Override
-    public Object afterMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Object ret) throws Throwable {
-        return ret;
+    public Object afterMethod(Method method, Object[] allArguments, Class<?>[] argumentsTypes, Object result) throws Throwable {
+        return result;
     }
 
     @Override
