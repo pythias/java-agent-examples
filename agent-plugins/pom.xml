@@ -9,11 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>plugins</artifactId>
+    <artifactId>agent-plugins</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>http-client-plugin</module>
-        <module>jedis-plugin</module>
+        <module>agent-plugins-jedis</module>
+        <module>agent-plugins-httpclient</module>
     </modules>
 
     <dependencies>
@@ -35,6 +35,13 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>net.bytebuddy:byte-buddy:jar:</exclude>
+                                </excludes>
+                            </artifactSet>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

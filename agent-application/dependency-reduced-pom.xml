@@ -6,7 +6,7 @@
     <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>agent-bootstrap</artifactId>
+  <artifactId>agent-application</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -18,21 +18,11 @@
               <goal>shade</goal>
             </goals>
             <configuration>
-              <transformers>
-                <transformer>
-                  <manifestEntries>
-                    <Premain-Class>${premain.class}</Premain-Class>
-                  </manifestEntries>
-                </transformer>
-              </transformers>
-              <filters>
-                <filter>
-                  <artifact>net.bytebuddy:byte-buddy</artifact>
-                  <excludes>
-                    <exclude>META-INF/versions/9/module-info.class</exclude>
-                  </excludes>
-                </filter>
-              </filters>
+              <artifactSet>
+                <excludes>
+                  <exclude>net.bytebuddy:byte-buddy:jar:</exclude>
+                </excludes>
+              </artifactSet>
             </configuration>
           </execution>
         </executions>
@@ -41,12 +31,27 @@
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <outputDirectory>../bin</outputDirectory>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.duo.examples.Application</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <groupId>net.bytebuddy</groupId>
+      <artifactId>byte-buddy</artifactId>
+      <version>1.9.12</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
   <properties>
-    <javassist.version>3.11.0.GA</javassist.version>
-    <premain.class>com.duo.examples.agent.Agent</premain.class>
+    <okhttp.version>3.14.0</okhttp.version>
+    <jedis.version>3.0.1</jedis.version>
+    <httpclient.version>4.5.7</httpclient.version>
   </properties>
 </project>

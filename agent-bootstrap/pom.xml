@@ -9,12 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>agent</artifactId>
+    <artifactId>agent-bootstrap</artifactId>
+
+    <properties>
+        <javassist.version>3.11.0.GA</javassist.version>
+        <premain.class>com.duo.examples.agent.Agent</premain.class>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.11.0.GA</version>
+            <version>${javassist.version}</version>
         </dependency>
         <dependency>
             <groupId>com.duo.examples</groupId>
@@ -24,16 +30,11 @@
         </dependency>
     </dependencies>
 
-    <properties>
-        <premain.class>com.duo.examples.agent.Agent</premain.class>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -48,6 +49,14 @@
                                     </manifestEntries>
                                 </transformer>
                             </transformers>
+                            <filters>
+                                <filter>
+                                    <artifact>net.bytebuddy:byte-buddy</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/versions/9/module-info.class</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                         </configuration>
                     </execution>
                 </executions>

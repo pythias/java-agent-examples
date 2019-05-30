@@ -10,9 +10,9 @@
     <name>agent-example</name>
 
     <modules>
-        <module>agent</module>
+        <module>agent-bootstrap</module>
         <module>agent-application</module>
-        <module>plugins</module>
+        <module>agent-plugins</module>
         <module>agent-core</module>
     </modules>
 
@@ -24,8 +24,13 @@
         <java.target.version>1.8</java.target.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <bytebuddy.version>1.9.12</bytebuddy.version>
         <logback.version>1.2.3</logback.version>
+        <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+        <maven-shade-plugin.version>3.2.1</maven-shade-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
     <dependencies>
@@ -45,4 +50,26 @@
             <version>${logback.version}</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>${maven-shade-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

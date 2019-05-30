@@ -30,12 +30,12 @@ public class PluginLoader extends ClassLoader {
 
         pluginJars = new ArrayList<>();
         try {
-            String runDir = System.getProperty("RUN_DIR");
-            if (runDir == null || runDir.isEmpty()) {
-                runDir = "./bin";
+            String pluginDir = System.getProperty("plugin.dir");
+            if (pluginDir == null || pluginDir.isEmpty()) {
+                pluginDir = "./bin/plugins";
             }
-            pluginJars.add(new File(runDir + "/plugins/http-client-plugin-0.0.1.jar").toURI().toURL());
-            pluginJars.add(new File(runDir + "/plugins/jedis-plugin-0.0.1.jar").toURI().toURL());
+            pluginJars.add(new File(pluginDir + "/agent-plugins-httpclient-0.0.1.jar").toURI().toURL());
+            pluginJars.add(new File(pluginDir + "/agent-plugins-jedis-0.0.1.jar").toURI().toURL());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
